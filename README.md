@@ -4,6 +4,7 @@ https://github.com/Under5502/OderFood
 
 Mô tả ngắn: Đây là trang web giúp chúng ta tiết kiệm thời gian khi đi ra ngoài mua đồ ăn, trang web này giúp chúng ta có thể đặt đồ ăn online và giao hàng 1 cách nhanh chóng
 
+- call api từ https://www.themealdb.com/ để có thể lấy api thức ăn
 - Hiển thị thông tin chi tiết các món ăn
 - Thành phần nguyên liệu
 - Chức năng thêm vào giỏ hàng
