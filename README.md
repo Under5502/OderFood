@@ -12,11 +12,12 @@ Mô tả ngắn: Đây là trang web giúp chúng ta tiết kiệm thời gian k
 - Responsive UI cho cả desktop và mobile
 
 2. Cấu Trúc Thư Mục
-   assets/: đây là nơi chứa các ảnh và video được sử dụng trong dự án
 
-components/: Chứa cái components có thể tái sử dụng
+- assets/: đây là nơi chứa các ảnh và video được sử dụng trong dự án
 
-Page/: Đây là nơi chứa các màn hình chính
+- components/: Chứa cái components có thể tái sử dụng
+
+- Page/: Đây là nơi chứa các màn hình chính
 
 3. Chức năng
 
