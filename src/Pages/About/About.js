@@ -1,9 +1,9 @@
 import React from "react";
 import "./About.scss";
 import { useState } from "react";
-import salad1 from "../../assets/salad1.png";
-import salad2 from "../../assets/salad2.png";
-import salad3 from "../../assets/salad3.png";
+import salad1 from "../../assets/salad7.jpg";
+import salad2 from "../../assets/salad8.png";
+import salad3 from "../../assets/salad9.png";
 import image1 from "../../assets/image1.png";
 import image2 from "../../assets/image2.png";
 import appstore from "../../assets/appstore.png";

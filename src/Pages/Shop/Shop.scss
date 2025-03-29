@@ -1,0 +1,290 @@
+.shop-wrapper {
+  padding: 50px;
+  font-family: "Poppins", sans-serif;
+  background: #eef0f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  padding-bottom: 17%;
+}
+////////////////
+.cart-hover-zone {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 200px;
+  z-index: 999;
+}
+.cart-shop {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 15px;
+  background-color: black;
+  color: white;
+  font-size: 33px;
+  border-radius: 30% 30% 100% 30%;
+  transform: translateY(-30px);
+  opacity: 0;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+// Khi hover vùng gần icon
+.cart-hover-zone:hover .cart-shop {
+  transform: translateY(0);
+  opacity: 1;
+}
+////////////
+.stl {
+  padding-bottom: 20%;
+  text-align: start;
+  margin-right: 20%;
+  padding-right: 0%;
+}
+.la2-shop {
+  position: absolute;
+  mix-blend-mode: multiply;
+  width: 15%;
+  top: 73%;
+  left: 44%;
+}
+.la1-shop {
+  position: absolute;
+  mix-blend-mode: multiply;
+  width: 12%;
+  left: 45%;
+}
+.logo-shop {
+  width: 5%;
+  position: absolute;
+  left: 5%;
+  mix-blend-mode: multiply;
+  cursor: pointer;
+}
+// ==== SHOP TOP ====
+.shop-top {
+  text-align: center;
+  /* max-width: 700px; */
+  display: flex;
+  padding-top: 5%;
+  padding-right: 40%;
+  .h1-sl {
+    mix-blend-mode: multiply;
+    position: absolute;
+    top: 10%;
+    width: 65%;
+    left: 42%;
+  }
+  .logo-shop {
+    width: 80px;
+    mix-blend-mode: multiply;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 63px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: #555;
+    font-size: 20px;
+    margin-bottom: 30px;
+    margin-right: 20%;
+  }
+
+  .btn-view {
+    background: black;
+    color: white;
+    padding: 20px 70px;
+    border-radius: 40px 40px 0px 40px;
+    border: none;
+    cursor: pointer;
+
+    .fa-right {
+      margin-left: 20px;
+      position: relative;
+      top: 4px;
+      font-size: 20px;
+    }
+    .spv {
+      font-size: 20px;
+    }
+  }
+}
+
+// ==== SHOP MID ====
+.shop-mid {
+  display: flex;
+  gap: 15%;
+  .arrow-left {
+    position: absolute;
+    top: 115%;
+    padding: 20px;
+    border: transparent;
+    background: white;
+    border-radius: 100px;
+    cursor: pointer;
+    .btn-mid-l {
+      color: black;
+      position: absolute;
+      top: 35%;
+      right: 31%;
+    }
+  }
+  .arrow-right {
+    position: absolute;
+    top: 115%;
+    right: 51%;
+    padding: 20px;
+    border: transparent;
+    background: white;
+    border-radius: 100px;
+    cursor: pointer;
+    .btn-mid-r {
+      color: black;
+      position: absolute;
+      top: 35%;
+      right: 31%;
+    }
+  }
+  .shop-cards {
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    margin-left: 4%;
+
+    .card {
+      background: white;
+      border-radius: 100px;
+      padding: 30px;
+      position: relative;
+      text-align: center;
+      padding-top: 40%;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      width: 200px;
+      height: 140px;
+
+      img {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        object-fit: cover;
+        position: absolute;
+        top: -26%;
+        left: 50%;
+        transform: translateX(-50%);
+        mix-blend-mode: multiply;
+      }
+      .sm-h3 {
+        margin: -24px 0 5px;
+        font-size: 25px;
+      }
+
+      .sm-p {
+        color: #666;
+        font-size: 25px;
+      }
+
+      .sm-sp {
+        display: block;
+        font-weight: bold;
+        margin-top: 5px;
+        font-size: 20px;
+      }
+
+      .add-btn {
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background: black;
+        color: white;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+      }
+    }
+  }
+  .sm-h2 {
+    font-size: 493%;
+    font-family: serif;
+    font-weight: 800;
+  }
+  .sm-p2 {
+    font-size: 23px;
+  }
+}
+
+// ==== SHOP BOTTOM ====
+.shop-bottom {
+  max-width: 900px;
+  text-align: center;
+
+  .hero-image {
+    position: relative;
+    margin-bottom: 40px;
+
+    .h1-sl {
+      width: 100%;
+      max-width: 500px;
+      mix-blend-mode: multiply;
+    }
+  }
+  .bottom-salad {
+    display: flex;
+    gap: 5%;
+  }
+
+  .shop-description {
+    margin-bottom: 30px;
+
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    p {
+      color: #666;
+      margin-top: 10px;
+    }
+  }
+
+  .bottom-salad {
+    .h3-bt {
+      font-size: 41px;
+      font-weight: 600;
+      margin-right: 40%;
+    }
+
+    .p-bt {
+      color: #555;
+      margin: 10px 0;
+      margin-right: 56%;
+      font-size: 23px;
+    }
+
+    .img-bottom {
+      width: 500px;
+      height: 500px;
+      position: absolute;
+      top: 170%;
+      right: 5%;
+    }
+  }
+  .btsl {
+    /* padding-right: 76%; */
+    margin-left: -20%;
+    text-align: start;
+  }
+}
+.shop-description {
+  margin-left: -13%;
+}

@@ -1,15 +1,50 @@
 .navbar {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 20px 40px;
   background-color: #eef0f9;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   font-family: "Segoe UI", sans-serif;
+
   .logo-nav {
     width: 6%;
     cursor: pointer;
     margin-left: 2%;
+
+    @media (max-width: 768px) {
+      width: 40px;
+    }
+  }
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 60%;
+    height: 100vh;
+    background: #eef0f9;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    transition: right 0.3s ease-in-out;
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+
+    /* 🛠 Đặt menu trên tất cả */
+    z-index: 9999;
+  }
+}
+
+.navbar-right.open {
+  @media (max-width: 768px) {
+    right: 0;
+    padding: 5% 0;
   }
 }
 
@@ -17,43 +52,57 @@
   display: flex;
   list-style: none;
   gap: 30px;
+  margin-left: -16%;
 
-  margin-left: -5%;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
 }
 
 .navbar-menu li {
   cursor: pointer;
   font-weight: 600;
   transition: color 0.2s ease;
+
   &:hover {
     transform: scale(1.1);
     transition: 0.4s ease-in-out;
+    color: #3cb371;
   }
 }
 
-.navbar-menu li:hover {
-  color: #3cb371;
-}
-.navbar-left {
-}
 .order-btn {
   background-color: black;
   color: white;
   border: none;
-  padding: 0% 22px;
+  padding: 10px 22px;
   border-radius: 20px;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.2s ease;
   margin-left: 5%;
+  &:hover {
+    background-color: #3cb371;
+    color: black;
+    transform: scale(1.1);
+    transition: 0.4s ease-in-out;
+  }
 }
 
-.order-btn:hover {
-  background-color: #3cb371;
-  color: black;
-  transform: scale(1.1);
-  transition: 0.4s ease-in-out;
+.menu-icon {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    display: block;
+    margin-right: 20px;
+  }
 }
-.navbar-right {
-  display: flex;
+
+.close-icon {
+  padding-left: 50%;
+  font-size: 20px;
 }
