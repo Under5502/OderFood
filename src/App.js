@@ -6,7 +6,8 @@ import { useLocation } from "react-router-dom";
 const App = () => {
   const location = useLocation();
 
-  const hideNavbar = location.pathname === "/shop";
+  const hideNavbar =
+    location.pathname === "/shop" || location.pathname.startsWith("/product");
 
   return (
     <>

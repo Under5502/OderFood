@@ -5,16 +5,17 @@
   padding: 20px 40px;
   background-color: #eef0f9;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   font-family: "Segoe UI", sans-serif;
-
+  @media (max-width: 768px) {
+    background-color: white;
+  }
   .logo-nav {
     width: 6%;
     cursor: pointer;
     margin-left: 2%;
 
     @media (max-width: 768px) {
-      width: 40px;
+      display: none;
     }
   }
 }

@@ -1,0 +1,231 @@
+.product-detail {
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  max-width: 480px;
+  margin: 0 auto;
+  background: #fff;
+  position: relative;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+
+  .top-nav {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 16px;
+
+    .back-btn,
+    .menu-dots {
+      cursor: pointer;
+    }
+  }
+
+  .product-image-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    img {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .product-content {
+    .pd-pp {
+      display: flex;
+      gap: 50px;
+      margin-bottom: -20px;
+    }
+    .category {
+      color: black;
+      font-size: 18px;
+      margin-bottom: -25px;
+    }
+
+    .title {
+      font-size: 29px;
+      font-weight: 800;
+    }
+
+    .quantity-control {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: -7px;
+
+      button {
+        background: #000;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      span {
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+
+    .description {
+      font-size: 16px;
+      color: black;
+      margin-bottom: 20px;
+    }
+
+    .delivery-info {
+      display: flex;
+
+      margin-bottom: 30px;
+      .sp-time {
+        margin-right: 20px;
+      }
+      .sp-m {
+        font-size: 18px;
+        font-weight: 600;
+        margin-top: -1px;
+      }
+      svg {
+        font-size: 16px;
+        margin-right: 10px;
+      }
+    }
+
+    .footer {
+      display: flex;
+      flex-direction: row;
+      padding: 0;
+
+      .total {
+        text-align: left;
+
+        span {
+          font-size: 17px;
+          color: #777;
+        }
+
+        h3 {
+          margin: 0;
+          font-size: 20px;
+        }
+      }
+
+      .cart-btn {
+        background: black;
+        color: white;
+        border: none;
+        border-radius: 20px;
+
+        width: 70px;
+        height: 70px;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transform: rotate(45deg);
+        .cart-p {
+          font-size: 30px;
+          transform: rotate(-45deg);
+        }
+        .cart-badge {
+          position: absolute;
+          top: 7px;
+          right: 24px;
+          background: red;
+          color: white;
+          width: 20px;
+          height: 20px;
+          font-size: 12px;
+          font-weight: bold;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 2;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+}
+
+
+/////////////////////////////////////////
+.slider-wrapper {
+  position: relative;
+  text-align: center;
+  margin-bottom: 20px;
+
+  .slider {
+    position: relative;
+    height: 240px;
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%) scale(0.95);
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+
+      &.active {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+        z-index: 1;
+      }
+
+      img {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        mix-blend-mode: multiply;
+      }
+    }
+  }
+
+  .slider-indicator {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    gap: 8px;
+
+    .dot {
+      width: 15px;
+      height: 6px;
+      background-color: #ccc;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      opacity: 0.5;
+
+      &.active {
+        width: 24px;
+        height: 6px;
+        border-radius: 10px;
+        background-color: #333;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.menu-dots {
+  cursor: pointer !important;
+  font-size: 28px;
+  font-weight: 800;
+  color: black;
+}

@@ -41,6 +41,7 @@ function Shop() {
       <div className="cart-hover-zone">
         <div className="cart-shop">
           <BsCart3 />
+          <span className="cart-badge">1</span>
         </div>
       </div>
 

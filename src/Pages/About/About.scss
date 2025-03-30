@@ -3,6 +3,10 @@
   padding: 0 60px;
   overflow: hidden;
   background-color: #eef0f9;
+  @media (max-width: 768px) {
+    padding: 0 10px;
+    background-color: white;
+  }
   .hero {
     display: flex;
     align-items: center;
@@ -10,6 +14,9 @@
 
     .hero-text {
       max-width: 50%;
+      @media (max-width: 768px) {
+        max-width: 100%;
+      }
 
       h2 {
         font-size: 2.5rem;
@@ -149,6 +156,7 @@
       color: black;
       font-size: 140%;
       text-align: start;
+      margin-right: 52%;
     }
   }
   .about-hb {
@@ -191,6 +199,151 @@
       li {
         margin-bottom: 8px;
       }
+    }
+  }
+}
+////////////////////////Mobile////////////////////////////////////////
+@media (max-width: 768px) {
+  .about-page {
+  }
+
+  .hero {
+    flex-direction: column;
+
+    .hero-text {
+      max-width: 100%;
+
+      h2 {
+        text-align: start;
+        font-size: 34px !important;
+      }
+
+      p {
+        font-size: 1.2rem;
+        margin-right: 0 !important;
+      }
+    }
+
+    .hero-image {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      position: relative;
+
+      .slide-img {
+        width: 100%;
+        max-width: 280px;
+        position: static;
+      }
+
+      .next-btn,
+      .prev-btn {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .prev-btn {
+        left: 131px !important;
+        top: 330px !important;
+      }
+
+      .next-btn {
+        right: 106px !important;
+        top: 103% !important;
+      }
+    }
+  }
+
+  .app-mockup {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+
+    .mockup {
+      width: 90% !important;
+      margin-bottom: 20px;
+    }
+
+    .app-info {
+      max-width: 100% !important;
+
+      h3 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .store-buttons img {
+        width: 45%;
+      }
+    }
+  }
+
+  .cta {
+    margin: 0 !important;
+    h4 {
+      text-align: center;
+    }
+
+    h2 {
+      margin: 0;
+      padding-right: 80px;
+    }
+
+    .about-hb {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-btn {
+      width: 80%;
+      max-width: 250px;
+    }
+
+    p {
+      margin: 0 !important;
+    }
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+
+    .footer-col {
+      padding: 20px 0;
+      font-size: 20px;
+    }
+  }
+
+  /* Ẩn thanh cuộn ngang trên mobile */
+  body {
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative !important;
+
+    .slide-img {
+      width: 100%;
+      max-width: 280px;
+      position: static !important; /* Thay vì absolute */
+      right: 0;
+      display: block; /* Đảm bảo không bị ẩn */
+    }
+
+    .prev-btn {
+      left: 5px;
+    }
+
+    .next-btn {
+      right: 5px;
     }
   }
 }

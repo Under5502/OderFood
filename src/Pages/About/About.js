@@ -78,8 +78,8 @@ function About() {
         </div>
         <hr />
         <p>
-          We're a team of professionals excited about our customers <br />
-          to show them their amazing skills and expertness in food.
+          We're a team of professionals excited about our customers to show them
+          their amazing skills and expertness in food.
         </p>
       </section>
       <footer className="footer">
