@@ -15,7 +15,8 @@
     margin-left: 2%;
 
     @media (max-width: 768px) {
-      display: none;
+      // display: none;
+      width: 50px;
     }
   }
 }
