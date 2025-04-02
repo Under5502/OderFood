@@ -24,6 +24,10 @@ const ProductDetail = () => {
   const handleIncrease = () => setQuantity((prev) => prev + 1);
   const handleDecrease = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
 
+  const handleCart = () => {
+    navigate("/cart");
+  };
+
   return (
     <div className="product-detail">
       {/* Top Navigation */}
@@ -94,7 +98,7 @@ const ProductDetail = () => {
             <h3>${total}</h3>
           </div>
 
-          <button className="cart-btn">
+          <button className="cart-btn" onClick={handleCart}>
             <IoCartOutline className="cart-p" />
             <span className="cart-badge">1</span>
           </button>

@@ -7,6 +7,7 @@ import { useRoutes } from "react-router-dom";
 import App from "./App";
 import ResponsiveShop from "./Pages/Shop/ResponsiveShop";
 import ProductDetail from "./Pages/ProductDetail/ProductDetail";
+import Cart from "./Pages/Cart/Cart";
 const Layout = () => {
   const routes = useRoutes([
     {
@@ -17,6 +18,7 @@ const Layout = () => {
         { path: "about", element: <About /> },
         { path: "shop", element: <ResponsiveShop /> },
         { path: "/product/:id", element: <ProductDetail /> },
+        { path: "/cart", element: <Cart /> },
       ],
     },
   ]);

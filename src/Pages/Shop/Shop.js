@@ -19,6 +19,9 @@ function Shop() {
   const handleHome = () => {
     navigate("/");
   };
+  const handleCart = () => {
+    navigate("/cart");
+  };
   const saladItems = [
     {
       id: 1,
@@ -39,7 +42,7 @@ function Shop() {
   return (
     <div className="shop-wrapper">
       <div className="cart-hover-zone">
-        <div className="cart-shop">
+        <div className="cart-shop" onClick={handleCart}>
           <BsCart3 />
           <span className="cart-badge">1</span>
         </div>
