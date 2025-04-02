@@ -4,7 +4,7 @@ import "./MobileShop.scss";
 import salad1 from "../../../assets/salad7.jpg";
 import salad2 from "../../../assets/salad6.png";
 import salad3 from "../../../assets/salad9.png";
-import Navbar from "../../../Components/Navbar/Navbar";
+// import Navbar from "../../../Components/Navbar/Navbar";
 import { FiFilter } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
@@ -90,7 +90,7 @@ const MobileShop = () => {
 
   return (
     <div className="mobile-shop-container">
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* Header */}
       <div className="header">

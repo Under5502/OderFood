@@ -7,7 +7,9 @@ const App = () => {
   const location = useLocation();
 
   const hideNavbar =
-    location.pathname === "/shop" || location.pathname.startsWith("/product");
+    location.pathname === "/shop" ||
+    location.pathname.startsWith("/product") ||
+    location.pathname.startsWith("/cart");
 
   return (
     <>
