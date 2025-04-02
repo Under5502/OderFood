@@ -37,12 +37,12 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <img
+        {/* <img
           src={logo}
           alt="Logo"
           className="logo-nav"
           onClick={() => navigate("/")}
-        />
+        /> */}
       </div>
 
       {/* Icon menu mobile (hiện khi menu đóng) */}

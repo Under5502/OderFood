@@ -48,7 +48,7 @@ function Shop() {
         </div>
       </div>
 
-      <img src={logo} alt="Logo" className="logo-shop" onClick={handleHome} />
+      {/* <img src={logo} alt="Logo" className="logo-shop" onClick={handleHome} /> */}
       {/* SHOP TOP */}
       <div className="shop-top">
         <div className="stl">
