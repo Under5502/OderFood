@@ -46,9 +46,9 @@ function Navbar() {
       </div>
 
       {/* Icon menu mobile (hiện khi menu đóng) */}
-      {isMobile && !menuOpen && (
-        <div className="menu-icon" onClick={() => setMenuOpen(true)}>
-          <FaBars />
+      {isMobile && (
+        <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <FaTimes /> : <FaBars />}
         </div>
       )}
 
