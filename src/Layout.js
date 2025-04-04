@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import About from "./Pages/About/About";
 import Shop from "./Pages/Shop/Shop";
@@ -8,13 +13,16 @@ import App from "./App";
 import ResponsiveShop from "./Pages/Shop/ResponsiveShop";
 import ProductDetail from "./Pages/ProductDetail/ProductDetail";
 import Cart from "./Pages/Cart/Cart";
+import Login from "./Pages/Login/Login";
 const Layout = () => {
   const routes = useRoutes([
     {
       path: "/", // layout gốc
       element: <App />, // App chứa Navbar + Outlet
       children: [
-        { path: "", element: <Home /> },
+        { path: "/login", element: <Login /> },
+        { path: "", element: <Navigate to="/home" /> },
+        { path: "/home", element: <Home /> },
         { path: "about", element: <About /> },
         { path: "shop", element: <ResponsiveShop /> },
         { path: "/product/:id", element: <ProductDetail /> },
