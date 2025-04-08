@@ -1,11 +1,19 @@
 .navbar {
+  position: fixed;
+  top: -100px;
+  left: 65%;
+  width: 30%;
   display: flex;
+  z-index: 100;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 40px;
+  padding: 20px 0px;
   background-color: #f9f9f9;
   border-radius: 16px;
   font-family: "Segoe UI", sans-serif;
+  &.visible {
+    top: 0; // Hiện navbar khi hover gần mép trên
+  }
   @media (max-width: 768px) {
     background-color: white;
   }
@@ -105,4 +113,9 @@
 .close-icon {
   padding-left: 50%;
   font-size: 20px;
+}
+.search-nav {
+  font-size: 30px;
+  margin-left: 20px;
+  cursor: pointer;
 }

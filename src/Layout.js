@@ -14,10 +14,11 @@ import ResponsiveShop from "./Pages/Shop/ResponsiveShop";
 import ProductDetail from "./Pages/ProductDetail/ProductDetail";
 import Cart from "./Pages/Cart/Cart";
 import Login from "./Pages/Login/Login";
+import ChefPage from "./Pages/ChefPage/ChefPage";
 const Layout = () => {
   const routes = useRoutes([
     {
-      path: "/", // layout gốc
+      // layout gốc
       element: <App />, // App chứa Navbar + Outlet
       children: [
         { path: "/login", element: <Login /> },
@@ -27,6 +28,7 @@ const Layout = () => {
         { path: "shop", element: <ResponsiveShop /> },
         { path: "/product/:id", element: <ProductDetail /> },
         { path: "/cart", element: <Cart /> },
+        { path: "/chef", element: <ChefPage /> },
       ],
     },
   ]);

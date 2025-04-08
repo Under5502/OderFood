@@ -3,12 +3,29 @@ import { useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa"; // Import icon menu
 import logo from "../../assets/logo.jpg";
 import "./Navbar.scss";
+import { GoSearch } from "react-icons/go";
 
 function Navbar() {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const menuRef = useRef(null);
+  const [showNavbar, setShowNavbar] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (showSearch) return; // Đừng làm gì nếu đang mở search
+      if (e.clientY < 50) {
+        setShowNavbar(true);
+      } else {
+        setShowNavbar(false);
+      }
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+    return () => document.removeEventListener("mousemove", handleMouseMove);
+  }, [showSearch]); // 👈 Đừng quên thêm `showSearch` vào dependency
 
   // Cập nhật trạng thái mobile khi thay đổi kích thước màn hình
   useEffect(() => {
@@ -35,69 +52,70 @@ function Navbar() {
   }, [menuOpen]);
 
   return (
-    <nav className="navbar">
-      <div className="navbar-left">
-        {/* <img
+    <>
+      <nav className={`navbar ${showNavbar ? "visible" : ""}`}>
+        {" "}
+        <div className="navbar-left">
+          {/* <img
           src={logo}
           alt="Logo"
           className="logo-nav"
           onClick={() => navigate("/")}
         /> */}
-      </div>
-
-      {/* Icon menu mobile (hiện khi menu đóng) */}
-      {isMobile && (
-        <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? <FaTimes /> : <FaBars />}
         </div>
-      )}
-
-      {/* Menu navbar */}
-      <div className={`navbar-right ${menuOpen ? "open" : ""}`} ref={menuRef}>
-        {/* Icon đóng menu (hiện khi menu mở) */}
+        {/* Icon menu mobile (hiện khi menu đóng) */}
         {isMobile && (
-          <div className="close-icon" onClick={() => setMenuOpen(false)}>
-            <FaTimes />
+          <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <FaTimes /> : <FaBars />}
           </div>
         )}
+        {/* Menu navbar */}
+        <div className={`navbar-right ${menuOpen ? "open" : ""}`} ref={menuRef}>
+          {/* Icon đóng menu (hiện khi menu mở) */}
+          {isMobile && (
+            <div className="close-icon" onClick={() => setMenuOpen(false)}>
+              <FaTimes />
+            </div>
+          )}
 
-        <ul className="navbar-menu">
-          <li
+          <ul className="navbar-menu">
+            <li
+              onClick={() => {
+                navigate("/about");
+                setMenuOpen(false);
+              }}
+            >
+              About Us
+            </li>
+            <li
+              onClick={() => {
+                navigate("/blog");
+                setMenuOpen(false);
+              }}
+            >
+              Our Blog
+            </li>
+            <li
+              onClick={() => {
+                navigate("/shop");
+                setMenuOpen(false);
+              }}
+            >
+              Our Shop
+            </li>
+          </ul>
+          <button
+            className="order-btn"
             onClick={() => {
-              navigate("/about");
+              navigate("/");
               setMenuOpen(false);
             }}
           >
-            About Us
-          </li>
-          <li
-            onClick={() => {
-              navigate("/blog");
-              setMenuOpen(false);
-            }}
-          >
-            Our Blog
-          </li>
-          <li
-            onClick={() => {
-              navigate("/shop");
-              setMenuOpen(false);
-            }}
-          >
-            Our Shop
-          </li>
-        </ul>
-        <button
-          className="order-btn"
-          onClick={() => {
-            navigate("/");
-            setMenuOpen(false);
-          }}
-        >
-          Order Now
-        </button>
-      </div>
-    </nav>
+            Order Now
+          </button>
+        </div>
+      </nav>
+    </>
   );
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.scss";
 
 import salad7 from "../../assets/salad7.jpg";
@@ -8,6 +8,7 @@ import salad6 from "../../assets/salad6.png";
 import la1 from "../../assets/la1.jpg";
 import la2 from "../../assets/la2.jpg";
 import la3 from "../../assets/la3.jpg";
+import services, { initContract } from "../../utils/services";
 
 const Home = () => {
   const categories = [
@@ -271,7 +272,7 @@ const Home = () => {
               disabled={(page + 1) * mealsPerPage >= meals.length}
             >
               →
-            </button>
+            </button>{" "}
           </div>
         )}
       </div>
