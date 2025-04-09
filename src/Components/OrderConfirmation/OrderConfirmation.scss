@@ -1,0 +1,81 @@
+.order-confirmation-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+
+  h2 {
+    font-size: 24px;
+    color: green;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 30px;
+  }
+
+  .order-status-timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    .status-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      &.completed {
+        .status-step {
+          background-color: green;
+          color: white;
+        }
+
+        .status-label,
+        .status-time {
+          color: green;
+        }
+      }
+
+      &.current {
+        .status-step {
+          background-color: #f5a623;
+          color: white;
+        }
+
+        .status-label,
+        .status-time {
+          color: #f5a623;
+        }
+      }
+
+      .status-step {
+        background-color: gray;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .status-label {
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .status-time {
+        font-size: 12px;
+        color: #777;
+      }
+    }
+  }
+}

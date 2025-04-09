@@ -5,6 +5,7 @@ import salad2 from "../../assets/salad8.png";
 import salad3 from "../../assets/salad9.png";
 import { FaCheckCircle } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 const mealsData = {
   Salad: [
@@ -128,6 +129,7 @@ const Cart = () => {
     const qty = itemQuantities[index] || 1;
     return total + item.price * qty;
   }, 0);
+  const navigate = useNavigate();
 
   return (
     <div className="cart-container">
@@ -340,7 +342,9 @@ const Cart = () => {
             </div>
           </div>
 
-          <button className="confirm-btn">Confirm Order</button>
+          <button className="confirm-btn" onClick={() => navigate("/checkout")}>
+            Confirm Order
+          </button>
         </div>
       </div>
     </div>

@@ -41,14 +41,8 @@ function Shop() {
 
   return (
     <div className="shop-wrapper">
-      <div className="cart-hover-zone">
-        <div className="cart-shop" onClick={handleCart}>
-          <BsCart3 />
-          <span className="cart-badge">1</span>
-        </div>
-      </div>
+      
 
-      {/* <img src={logo} alt="Logo" className="logo-shop" onClick={handleHome} /> */}
       {/* SHOP TOP */}
       <div className="shop-top">
         <div className="stl">

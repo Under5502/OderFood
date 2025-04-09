@@ -32,7 +32,7 @@ const App = () => {
   return (
     <>
       {/* {!hideNavbar && <Navbar />}{" "} */}
-      <Filter />
+      {/* <Filter /> */}
       {myAddress && (
         <ChatWidget
           name={role === "chef" ? "Khách hàng" : "Bếp"}

@@ -18,7 +18,6 @@ const ChefPage = () => {
     setPrivateKey(key);
     setChefAddress(account.address);
 
-    console.log("👉 Địa chỉ Chef đang chạy:", account.address);
   }, []);
 
   if (!privateKey || !chefAddress) return <div>⏳ Đang tải...</div>;

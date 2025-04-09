@@ -2,11 +2,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import services from "../../utils/services";
 import "./ChatWidget.scss";
+import { IoIosClose } from "react-icons/io";
 
 export default function ChatWidget({ myAddress, receiver, privateKey, name }) {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const hasInitListener = useRef(false); // 👉 để tránh đăng ký listener nhiều lần
 
   useEffect(() => {
@@ -14,17 +15,8 @@ export default function ChatWidget({ myAddress, receiver, privateKey, name }) {
       return;
 
     const handleMessage = (msg) => {
-      console.log("📥 Nhận được event MessageSent:", msg);
-
       const isMine = msg.receiver?.toLowerCase() === myAddress.toLowerCase();
       const isFromTarget = msg.sender?.toLowerCase() === receiver.toLowerCase();
-
-      console.log(
-        "👉 Điều kiện: isMine =",
-        isMine,
-        "| isFromTarget =",
-        isFromTarget
-      );
 
       if (isMine && isFromTarget) {
         setMessages((prev) => [
@@ -78,8 +70,12 @@ export default function ChatWidget({ myAddress, receiver, privateKey, name }) {
     <div className="chat-widget">
       {isOpen ? (
         <div className="chat-box">
-          <div className="chat-header" onClick={() => setIsOpen(false)}>
-            Chat với {name || "Người dùng"}
+          <div className="chat-header">
+            Chat với {name || "Bếp"}
+            <IoIosClose
+              className="btn-close"
+              onClick={() => setIsOpen(false)}
+            />
           </div>
 
           <div className="chat-body">

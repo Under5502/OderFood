@@ -15,6 +15,9 @@ import ProductDetail from "./Pages/ProductDetail/ProductDetail";
 import Cart from "./Pages/Cart/Cart";
 import Login from "./Pages/Login/Login";
 import ChefPage from "./Pages/ChefPage/ChefPage";
+import CheckoutPage from "./Components/Checkout/CheckoutPage";
+import OrderConfirmation from "./Components/OrderConfirmation/OrderConfirmation";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 const Layout = () => {
   const routes = useRoutes([
     {
@@ -29,6 +32,8 @@ const Layout = () => {
         { path: "/product/:id", element: <ProductDetail /> },
         { path: "/cart", element: <Cart /> },
         { path: "/chef", element: <ChefPage /> },
+        { path: "/checkout", element: <CheckoutPage /> },
+        { path: "/order-confirmation", element: <OrderConfirmation /> },
       ],
     },
   ]);

@@ -1,8 +1,5 @@
 .navbar {
-  position: fixed;
-  top: -100px;
-  left: 65%;
-  width: 30%;
+  width: 100%;
   display: flex;
   z-index: 100;
   align-items: center;
@@ -14,13 +11,14 @@
   &.visible {
     top: 0; // Hiện navbar khi hover gần mép trên
   }
+
   @media (max-width: 768px) {
     background-color: white;
   }
   .logo-nav {
     width: 6%;
     cursor: pointer;
-    margin-left: 2%;
+    margin-left: 4%;
 
     @media (max-width: 768px) {
       // display: none;
@@ -119,3 +117,13 @@
   margin-left: 20px;
   cursor: pointer;
 }
+
+.cart-shop {
+  color: black;
+  font-size: 33px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  margin-left: -60px;
+}
+
+// Khi hover vùng gần icon

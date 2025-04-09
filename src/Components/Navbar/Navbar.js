@@ -3,30 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa"; // Import icon menu
 import logo from "../../assets/logo.jpg";
 import "./Navbar.scss";
-import { GoSearch } from "react-icons/go";
+import { BsCart3 } from "react-icons/bs";
 
 function Navbar() {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const menuRef = useRef(null);
-  const [showNavbar, setShowNavbar] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (showSearch) return; // Đừng làm gì nếu đang mở search
-      if (e.clientY < 50) {
-        setShowNavbar(true);
-      } else {
-        setShowNavbar(false);
-      }
-    };
-
-    document.addEventListener("mousemove", handleMouseMove);
-    return () => document.removeEventListener("mousemove", handleMouseMove);
-  }, [showSearch]); // 👈 Đừng quên thêm `showSearch` vào dependency
-
+  const handleCart = () => {
+    navigate("/cart");
+  };
   // Cập nhật trạng thái mobile khi thay đổi kích thước màn hình
   useEffect(() => {
     const handleResize = () => {
@@ -53,15 +39,15 @@ function Navbar() {
 
   return (
     <>
-      <nav className={`navbar ${showNavbar ? "visible" : ""}`}>
+      <nav className="navbar">
         {" "}
         <div className="navbar-left">
-          {/* <img
-          src={logo}
-          alt="Logo"
-          className="logo-nav"
-          onClick={() => navigate("/")}
-        /> */}
+          <img
+            src={logo}
+            alt="Logo"
+            className="logo-nav"
+            onClick={() => navigate("/")}
+          />
         </div>
         {/* Icon menu mobile (hiện khi menu đóng) */}
         {isMobile && (
@@ -113,6 +99,11 @@ function Navbar() {
           >
             Order Now
           </button>
+        </div>
+        <div className="cart-hover-zone">
+          <div className="cart-shop" onClick={handleCart}>
+            <BsCart3 />
+          </div>
         </div>
       </nav>
     </>

@@ -1234,8 +1234,6 @@ export const initContract = async (useWebsocket = false, privateKey = "") => {
   let provider;
   if (useWebsocket) {
     provider = new Web3.providers.WebsocketProvider(wsURL);
-
-    // Thêm xử lý lỗi kết nối WS
     provider.on("connect", () => console.log("✅ WebSocket connected"));
     provider.on("error", (e) => console.error("❌ WS error:", e));
     provider.on("end", (e) => console.error("❌ WS disconnected:", e));
@@ -1246,10 +1244,18 @@ export const initContract = async (useWebsocket = false, privateKey = "") => {
   const web3 = new Web3(provider);
   console.log("Provider đang dùng:", provider);
 
-  if (!privateKey) throw new Error("Private Key chưa được truyền!");
+  let account = null;
 
-  const account = web3.eth.accounts.privateKeyToAccount(`0x${privateKey}`);
-  web3.eth.accounts.wallet.add(account);
+  if (privateKey) {
+    const cleanedKey = privateKey.trim().replace(/^0x/, ""); // bỏ 0x nếu có
+    if (cleanedKey.length !== 64) {
+      throw new Error("❌ Private key phải gồm đúng 64 ký tự hex (32 bytes)");
+    }
+
+    const fullKey = "0x" + cleanedKey;
+    account = web3.eth.accounts.privateKeyToAccount(fullKey);
+    web3.eth.accounts.wallet.add(account);
+  }
 
   const contract = new web3.eth.Contract(abi, contractAddress);
 
@@ -1352,7 +1358,7 @@ const services = {
   },
 
   getAllFoods: async () => {
-    const { contract } = await initContract();
+    const { contract } = await initContract(false);
     try {
       return await contract.methods.getAllFoods().call();
     } catch (error) {
@@ -1416,11 +1422,18 @@ const services = {
       img
     );
   },
-
-  createOrder: async (payment, _foodIds, _quantities, UsePoint, note) => {
-    const { contract } = await initContract();
+  createOrder: async (
+    payment,
+    _foodIds,
+    _quantities,
+    UsePoint,
+    note,
+    privateKey
+  ) => {
+    const { contract } = await initContract(false, privateKey);
     return sendTransaction(
       contract.methods.placeOrder,
+      privateKey,
       payment,
       _foodIds,
       _quantities,
@@ -1544,24 +1557,13 @@ const services = {
       // Bắt buộc dùng WebSocket Provider
       const { contract, account } = await initContract(true);
       if (!contract || !account) {
-        console.error("Lỗi: Contract hoặc account chưa được khởi tạo.");
         return;
       }
-
-      console.log(
-        "📡 Đang lắng nghe cập nhật đơn hàng cho địa chỉ:",
-        account.address
-      );
 
       contract.events
         .OrderStatusUpdated()
         .on("data", (event) => {
-          console.log("📩 Nhận được sự kiện cập nhật đơn hàng:", event);
-
           const { orderId, customer, status } = event.returnValues;
-          console.log(
-            `📦 Đơn hàng ${orderId} của ${customer} -> Trạng thái: ${status}`
-          );
 
           if (customer.toLowerCase() === account.address.toLowerCase()) {
             let statusText =
@@ -1577,15 +1579,8 @@ const services = {
             });
           }
         })
-        .on("error", (error) => {
-          console.error(
-            "🚨 Lỗi khi lắng nghe sự kiện cập nhật đơn hàng:",
-            error
-          );
-        });
-    } catch (error) {
-      console.error("🚨 Lỗi khi thiết lập listener đơn hàng:", error);
-    }
+        .on("error", (error) => {});
+    } catch (error) {}
   },
 };
 window.services = services;

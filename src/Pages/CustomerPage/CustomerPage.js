@@ -13,11 +13,8 @@ const CustomerPage = () => {
     return <div>❌ Chưa đăng nhập. Vui lòng đăng nhập lại.</div>;
   }
 
-  console.log("👉 Địa chỉ Customer đang chạy:", wallet.address);
-
   return (
     <div style={{ padding: "20px" }}>
-      <h2>👤 Trang Khách - Chat với Bếp</h2>
       <ChatWidget
         name="Bếp"
         myAddress={wallet.address}
